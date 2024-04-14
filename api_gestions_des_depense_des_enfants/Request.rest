@@ -1,8 +1,8 @@
 ###
-POST http://192.168.122.82:3000/api/auth/login
+POST http://192.168.100.147:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "abdomouak@gmail.com",
+    "email": "parent@gmail.com",
     "password": "123456"
 }

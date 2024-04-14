@@ -11,6 +11,9 @@ class AuthRoutes {
     }
 
     init() {
+        // Middlewares
+
+        // Routes
         this.router.post(this.path+'/login', this.controller.login);
     }
 }
