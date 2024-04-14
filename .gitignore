@@ -1,0 +1,9 @@
+# Ignore all folders
+*/
+
+# Except for these two folders
+!api_gestions_des_depense_des_enfants/
+!gestions_des_depense_des_enfants/
+
+# Ignore node_modules inside folder1 and folder2
+api_gestions_des_depense_des_enfants/node_modules/
