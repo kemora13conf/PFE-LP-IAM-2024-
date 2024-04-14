@@ -1,5 +1,5 @@
-# Ignore all folders
-*/
+# Ignore all folders and files
+/*
 
 # Except for these two folders
 !api_gestions_des_depense_des_enfants/
