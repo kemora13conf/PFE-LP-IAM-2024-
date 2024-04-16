@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gestions_des_depense_des_enfants/views/splahs.dart';
+import 'package:gestions_des_depense_des_enfants/screens/splahs.dart';
 import 'package:gestions_des_depense_des_enfants/routes/pages.dart';
 import 'package:get/get.dart';
 
