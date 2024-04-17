@@ -2986,3 +2986,20 @@
 2024-04-17 18:21:04 [37mdebug[39m: [37m[POST] /api/auth/login[39m
 2024-04-17 18:21:15 [37mdebug[39m: [37m[POST] /api/auth/login[39m
 2024-04-17 18:21:18 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:21:43 [32minfo[39m: [32m==========================================[39m
+2024-04-17 18:21:43 [32minfo[39m: [32m============ ENV: development ============[39m
+2024-04-17 18:21:43 [32minfo[39m: [32m🚀 App listening on the port 3000[39m
+2024-04-17 18:21:43 [32minfo[39m: [32m🏃 Running on http://192.168.11.130:3000[39m
+2024-04-17 18:21:43 [32minfo[39m: [32m==========================================[39m
+2024-04-17 18:21:43 [32minfo[39m: [32m====== DB STATE: Database connected ======[39m
+2024-04-17 18:22:22 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:25:15 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:25:16 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:25:17 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:25:18 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:25:19 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:25:22 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:25:29 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:26:06 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:32:59 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-17 18:35:38 [37mdebug[39m: [37m[POST] /api/auth/login[39m
