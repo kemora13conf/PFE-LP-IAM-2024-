@@ -1,0 +1,12 @@
+2024-04-17 15:50:49 [31merror[39m: [31mCannot read properties of undefined (reading 'validateEmail')[39m
+2024-04-17 15:51:15 [31merror[39m: [31mCannot read properties of undefined (reading 'validateEmail')[39m
+2024-04-17 15:52:07 [31merror[39m: [31mCannot read properties of undefined (reading 'validateEmail')[39m
+2024-04-17 15:52:32 [31merror[39m: [31mvalidateEmail is not defined[39m
+2024-04-17 15:53:28 [31merror[39m: [31mParent validation failed: adresse: Path `adresse` is required.[39m
+2024-04-17 15:54:07 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: CNI_1 dup key: { CNI: null }[39m
+2024-04-17 15:55:12 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: CNI_1 dup key: { CNI: null }[39m
+2024-04-17 16:53:22 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: CNI_1 dup key: { CNI: null }[39m
+2024-04-17 16:53:22 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: CNI_1 dup key: { CNI: null }[39m
+2024-04-17 16:55:32 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: email_1 dup key: { email: "abdomouak48@gmail.com" }[39m
+2024-04-17 16:55:54 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: email_1 dup key: { email: "abdomouak48@gmail.com" }[39m
+2024-04-17 17:36:34 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: email_1 dup key: { email: "abdomouak48@gmail.com" }[39m

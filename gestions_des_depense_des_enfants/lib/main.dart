@@ -14,6 +14,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Gestion Des Depenses au cafeteria",
+      debugShowCheckedModeBanner: false,
       getPages: Pages.routes,
       home: const Splash(),
     );

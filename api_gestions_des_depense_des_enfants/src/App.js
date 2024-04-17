@@ -24,7 +24,10 @@ export default class App {
 
   initMidlware() {
     this.app.use(express.json());
-    // this.app.use(express.urlencoded({ extended: true }));
+    
+    // assets
+    this.app.use('/assets', express.static("public"));
+
     this.app.use((req, res, next) => {
       Logger.debug(`[${req.method}] ${req.url}`);
       next();
@@ -47,8 +50,7 @@ export default class App {
           hashed_password: "123456",
           nom: "Parent",
           adresse: "Yaoundé",
-          genre: "M",
-          CNI: "123456789",
+          genre: "Male",
         });
         await parent.save();
         Logger.info("====== DB STATE: Parent created ======");
