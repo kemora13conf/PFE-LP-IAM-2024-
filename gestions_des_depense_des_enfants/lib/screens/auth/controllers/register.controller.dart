@@ -18,6 +18,7 @@ class RegisterController extends GetxController {
   var confirmPassword = "".obs;
   var image = "".obs;
   var gender = "Male".obs;
+  var token = "".obs;
   var isLoading = false.obs;
 
   var isPasswordVisible = false.obs;
@@ -28,6 +29,7 @@ class RegisterController extends GetxController {
   var passwordError = "".obs;
   var confirmPasswordError = "".obs;
   var imageError = "".obs;
+  var tokenError = "".obs;
 
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;
@@ -61,6 +63,10 @@ class RegisterController extends GetxController {
 
   void onGenderChanged(String value) {
     gender.value = value;
+  }
+
+  void onTokenChanged(String value) {
+    token.value = value;
   }
 
   bool validateFullname(String value) {
@@ -131,8 +137,47 @@ class RegisterController extends GetxController {
     }
   }
 
+  Future<bool> requestVerificationEmail() async {
+    final response = await http.post(
+      Uri.parse("${Config.API_URL}/auth/send-verification-email"),
+      headers: {"Content-Type": "application/json"},
+      body: json.encode({'email': email.value }),
+    );
+
+    if (response.statusCode == 200) {
+      HttpResponseModel responseModel =
+          HttpResponseModel.fromJson(json.decode(response.body));
+      if (responseModel.type == "EMAIL_SENT") {
+        Get.snackbar(
+          "Success",
+          responseModel.message ?? "Verification email sent",
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+        );
+        return true;
+      } else {
+        Get.snackbar(
+          "Error",
+          responseModel.message ?? "An error occurred",
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+        );
+        return false;
+      }
+    } else {
+      Get.snackbar(
+        "Something went wrong",
+        "An error occurred",
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+      return false;
+    }
+  }
+
   Future<bool> validateFirstStep() async {
     bool isEmailValid = await validateEmail(email.value);
+    isEmailValid = isEmailValid && await requestVerificationEmail();
     bool isValid = validateFullname(fullname.value) &
         isEmailValid &
         validatePassword(password.value) &
@@ -141,8 +186,43 @@ class RegisterController extends GetxController {
     return isValid;
   }
 
-  bool validateSecondStep() {
-    return true;
+  Future<bool> validateToken(String value) async {
+    if (value.isEmpty) {
+      tokenError.value = "Token is required";
+      return false;
+    }
+
+    logger.i("Validating token");
+
+    final response = await http.post(
+      Uri.parse("${Config.API_URL}/auth/verify-email"),
+      headers: {"Content-Type": "application/json"},
+      body: json.encode({
+        'email': email.value,
+        'token': token.value,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      HttpResponseModel responseModel =
+          HttpResponseModel.fromJson(json.decode(response.body));
+      if (responseModel.type == "TOKEN_VALID") {
+        tokenError.value = "";
+        return true;
+      } else {
+        tokenError.value = responseModel.message ?? "Invalid token";
+        return false;
+      }
+    } else {
+      tokenError.value = "An error occurred";
+      Get.snackbar(
+        "Something went wrong",
+        "An error occurred",
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+      return false;
+    }
   }
 
   bool validateImage(String value) {
@@ -177,10 +257,12 @@ class RegisterController extends GetxController {
         step.value = 2;
       }
     } else if (step.value == 2) {
-      step.value = 3;
+      if (await validateToken(token.value)) {
+        step.value = 3;
+      }
     } else if (step.value == 3) {
       if (validateImage(image.value)) {
-        submit();
+        await submit();
       }
     }
     isLoading.value = false;
@@ -188,7 +270,6 @@ class RegisterController extends GetxController {
   }
 
   Future<void> submit() async {
-    logger.i("Submitting registration form");
     var request = http.MultipartRequest(
         "POST", Uri.parse("${Config.API_URL}/auth/register"));
     request.files.add(await http.MultipartFile.fromPath("image", image.value));

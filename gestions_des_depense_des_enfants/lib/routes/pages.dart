@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gestions_des_depense_des_enfants/routes/paths.dart';
 import 'package:gestions_des_depense_des_enfants/screens/Welcome/welcome.dart';
+import 'package:gestions_des_depense_des_enfants/screens/auth/bindings/forgot_password.bindings.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/bindings/login.bindings.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/bindings/register.bindings.dart';
+import 'package:gestions_des_depense_des_enfants/screens/auth/bindings/reset_password.bindings.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/auth.dart';
+import 'package:gestions_des_depense_des_enfants/screens/auth/views/forgot_password.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/login.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/register.dart';
+import 'package:gestions_des_depense_des_enfants/screens/auth/views/reset_password.dart';
 import 'package:gestions_des_depense_des_enfants/screens/home/views/home.dart';
 import 'package:gestions_des_depense_des_enfants/screens/splahs.dart';
 import 'package:gestions_des_depense_des_enfants/screens/welcome/welcome.bindings.dart';
@@ -53,6 +57,20 @@ class Pages {
       transition: Transition.fade,
       curve: Curves.easeInCubic,
       transitionDuration: const Duration(milliseconds: 500),
+    ),
+    GetPage(
+      name: Paths.FORGOT_PASSWORD,
+      page: () => const ForgotPassword(),
+      transition: Transition.fade,
+      curve: Curves.easeInCubic,
+      binding: ForgotPasswordBinds(),
+    ),
+    GetPage(
+      name: Paths.RESET_PASSWORD,
+      page: () => const ResetPassword(),
+      transition: Transition.fade,
+      curve: Curves.easeInCubic,
+      binding: ResetPasswordBinds(),
     )
   ];
 }

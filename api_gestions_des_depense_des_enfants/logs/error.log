@@ -10,3 +10,8 @@
 2024-04-17 16:55:32 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: email_1 dup key: { email: "abdomouak48@gmail.com" }[39m
 2024-04-17 16:55:54 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: email_1 dup key: { email: "abdomouak48@gmail.com" }[39m
 2024-04-17 17:36:34 [31merror[39m: [31mE11000 duplicate key error collection: DB_gestions_des_depense_des_enfants.parents index: email_1 dup key: { email: "abdomouak48@gmail.com" }[39m
+2024-04-18 11:39:29 [31merror[39m: [31mCannot read properties of undefined (reading 'buffer')[39m
+2024-04-18 11:40:20 [31merror[39m: [31mCannot read properties of undefined (reading 'buffer')[39m
+2024-04-18 11:54:03 [31merror[39m: [31mCannot read properties of undefined (reading 'getFilename')[39m
+2024-04-18 11:54:53 [31merror[39m: [31mCannot read properties of undefined (reading 'getFilename')[39m
+2024-04-18 11:57:16 [31merror[39m: [31mCannot read properties of undefined (reading 'saveFile')[39m

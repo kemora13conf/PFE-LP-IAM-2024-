@@ -69,7 +69,7 @@ class EmailVerificationForm extends StatelessWidget {
                     ),
                     GetBuilder<RegisterController>(
                         builder: (_) => TextField(
-                              onChanged: _.onFullnameChanged,
+                              onChanged: _.onTokenChanged,
                               decoration: const InputDecoration(
                                 hintText: 'Ex: chYhJyGHG67',
                                 contentPadding: EdgeInsets.symmetric(
@@ -87,13 +87,13 @@ class EmailVerificationForm extends StatelessWidget {
                               ),
                             )),
                     GetBuilder<RegisterController>(
-                      builder: (_) => _.fullnameError.value.isNotEmpty
+                      builder: (_) => _.tokenError.value.isNotEmpty
                           ? Container(
                               alignment: Alignment.centerLeft,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  _.fullnameError.value,
+                                  _.tokenError.value,
                                   style: const TextStyle(
                                     color: Colors.red,
                                     fontSize: 12,
@@ -104,7 +104,7 @@ class EmailVerificationForm extends StatelessWidget {
                           : const SizedBox(height: 10),
                     ),
                     GetBuilder<RegisterController>(
-                      builder: (_) => _.isLoading.value
+                      builder: (_) => _.isLoading.isTrue
                           ? Container(
                               padding: const EdgeInsets.all(10.0),
                               width: MediaQuery.of(context).size.width - 40,

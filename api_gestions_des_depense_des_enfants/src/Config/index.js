@@ -12,6 +12,10 @@ export const {
   REFRESH_ACCESS_TOKEN_KEY,
   DATABASE_URL,
   IS_PROJECT_INSTALLED,
+  EMAIL_SERVICE,
+  EMAIL_USERNAME,
+  EMAIL_PASSWORD,
+  EMAIL_PORT,
 } = process.env;
 
 // function change the IS_PROJECT_INSTALLED in the .env.development.local file to true

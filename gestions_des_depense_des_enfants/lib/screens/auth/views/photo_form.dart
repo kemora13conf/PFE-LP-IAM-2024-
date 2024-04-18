@@ -169,32 +169,53 @@ class PhotoForm extends StatelessWidget {
                     ),
 
                     // Create account button
-                    Container(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10, bottom: 0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Get.find<RegisterController>().nextStep();
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF6C63FF),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 20),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          child: const Text(
-                            "Create Account",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontFamily: 'Sen',
-                            ),
-                          ),
-                        ),
-                      ),
+                    GetBuilder<RegisterController>(
+                      builder: (_) {
+                        return _.isLoading.isTrue
+                            ? Container(
+                                padding: const EdgeInsets.all(10.0),
+                                width: MediaQuery.of(context).size.width - 40,
+                                decoration: BoxDecoration(
+                                    color:
+                                        const Color.fromARGB(255, 0, 120, 255),
+                                    borderRadius: BorderRadius.circular(10.0)),
+                                child: const Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 4.0,
+                                    strokeAlign: BorderSide.strokeAlignInside,
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                width: double.infinity,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 10, bottom: 0),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Get.find<RegisterController>().nextStep();
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xFF6C63FF),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 15, horizontal: 20),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      "Create Account",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontFamily: 'Sen',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                      },
                     ),
                     const SizedBox(height: 20),
                     // Already have an account

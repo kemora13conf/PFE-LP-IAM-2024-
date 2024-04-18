@@ -6,5 +6,7 @@ class Paths{
   static const String HOME = '/home';
   static const String AUTH = '/auth';
   static const String LOGIN = '/login';
+  static const String FORGOT_PASSWORD = '/forgot-password';
+  static const String RESET_PASSWORD = '/reset-password';
   static const String REGISTER = '/register';
 }

@@ -257,7 +257,7 @@ class Login extends StatelessWidget {
                             width: double.infinity,
                             child: TextButton(
                               onPressed: () {
-                                // Get.toNamed(Paths.FORGOT_PASSWORD);
+                                Get.toNamed(Paths.FORGOT_PASSWORD);
                               },
                               child: const Text(
                                 "Forgot password?",
