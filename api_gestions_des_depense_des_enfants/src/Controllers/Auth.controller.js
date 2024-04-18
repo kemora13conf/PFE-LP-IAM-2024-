@@ -72,9 +72,9 @@ export default class AuthController {
           .json(ResponseAsnwer("PASSWORD_ERR", "Password is incorrect", []));
       }
 
-      // Generating tokens
+      // Generating token EXPIRES IN 3 DAYS
       const accessToken = jwt.sign({ email: parent.email }, ACCESS_TOKEN_KEY, {
-        expiresIn: "15m",
+        expiresIn: "3d",
       });
       const refreshToken = jwt.sign(
         { email: parent.email },
