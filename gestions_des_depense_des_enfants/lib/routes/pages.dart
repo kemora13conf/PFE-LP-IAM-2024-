@@ -10,6 +10,7 @@ import 'package:gestions_des_depense_des_enfants/screens/auth/views/forgot_passw
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/login.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/register.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/reset_password.dart';
+import 'package:gestions_des_depense_des_enfants/screens/home/bindings/home.bindings.dart';
 import 'package:gestions_des_depense_des_enfants/screens/home/views/home.dart';
 import 'package:gestions_des_depense_des_enfants/screens/splahs.dart';
 import 'package:gestions_des_depense_des_enfants/screens/welcome/welcome.bindings.dart';
@@ -52,13 +53,6 @@ class Pages {
       binding: RegisterBinds(),
     ),
     GetPage(
-      name: Paths.HOME,
-      page: () => const Home(),
-      transition: Transition.fade,
-      curve: Curves.easeInCubic,
-      transitionDuration: const Duration(milliseconds: 500),
-    ),
-    GetPage(
       name: Paths.FORGOT_PASSWORD,
       page: () => const ForgotPassword(),
       transition: Transition.fade,
@@ -71,6 +65,15 @@ class Pages {
       transition: Transition.fade,
       curve: Curves.easeInCubic,
       binding: ResetPasswordBinds(),
-    )
+    ),
+    
+    GetPage(
+      name: Paths.HOME,
+      page: () => const Home(),
+      transition: Transition.fade,
+      curve: Curves.easeInCubic,
+      transitionDuration: const Duration(milliseconds: 500),
+      binding: HomeBinds()
+    ),
   ];
 }

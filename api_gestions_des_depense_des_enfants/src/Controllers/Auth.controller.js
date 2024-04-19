@@ -15,7 +15,7 @@ function getFilename(originalname) {
   let arrName = originalname.split(".");
   let extension = arrName[arrName.length - 1];
   let nameWithoutExtension = arrName.slice(0, arrName.length - 1).join(".");
-  let saveAs = `${nameWithoutExtension}-${Date.now()}.${extension}`;
+  let saveAs = `${nameWithoutExtension}.${extension}`;
   return saveAs;
 }
 function sizeInMegaBytes(size) {
@@ -284,5 +284,27 @@ export default class AuthController {
         .json(ResponseAsnwer("SERVER_ERR", err.message, []));
     }
   }
-  static async loginRequired(req, res, next) {}
+  static async loginRequired(req, res, next) {
+    try {
+      const token = req.headers["authorization"].split(" ")[1];
+      if (!token) {
+        return res
+          .status(200)
+          .json(ResponseAsnwer("TOKEN_REQUIRED", "Token is required", []));
+      }
+      const { email } = jwt.verify(token, ACCESS_TOKEN_KEY);
+      const parent = await ParentModel.findOne({ email });
+      if (!parent) {
+        return res
+          .status(200)
+          .json(ResponseAsnwer("TOKEN_INVALID", "Token is invalid", []));
+      }
+      req.parent = parent;
+      next();
+    } catch (err) {
+      return res
+        .status(200)
+        .json(ResponseAsnwer("TOKEN_INVALID", "Token is invalid", []));
+    }
+  }
 }

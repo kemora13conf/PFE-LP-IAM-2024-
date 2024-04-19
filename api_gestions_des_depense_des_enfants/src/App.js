@@ -7,6 +7,7 @@ import {
   changeIsProjectInstalledToTrue,
 } from "./Config/index.js";
 import ParentModel from "./Models/Parent.model.js";
+import EnfantModel from "./Models/Enfant.model.js";
 import db from "./Database.js";
 import os from "os";
 
@@ -24,9 +25,9 @@ export default class App {
 
   initMidlware() {
     this.app.use(express.json());
-    
+
     // assets
-    this.app.use('/assets', express.static("public"));
+    this.app.use("/assets", express.static("public"));
 
     this.app.use((req, res, next) => {
       Logger.debug(`[${req.method}] ${req.url}`);
@@ -54,6 +55,29 @@ export default class App {
         });
         await parent.save();
         Logger.info("====== DB STATE: Parent created ======");
+        // create children for this prent
+        let children = [
+          {
+            nom: "Child 1",
+            CNE: "CNE1",
+            genre: "Male",
+            ecole: "Ecole 1",
+            niveau: "Niveau 1",
+            parent: parent._id,
+          },
+          {
+            nom: "Child 2",
+            CNE: "CNE2",
+            genre: "Female",
+            ecole: "Ecole 2",
+            niveau: "Niveau 2",
+            parent: parent._id,
+          },
+        ];
+
+        children = await EnfantModel.insertMany(children);
+        Logger.info("====== DB STATE: Children created ======");
+
         changeIsProjectInstalledToTrue();
       } catch (err) {
         Logger.error("====== DB STATE: Parent creation failed ======");

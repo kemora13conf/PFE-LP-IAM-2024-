@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gestions_des_depense_des_enfants/Config.dart';
 import 'package:gestions_des_depense_des_enfants/models/http_response.model.dart';
 import 'package:gestions_des_depense_des_enfants/routes/paths.dart';
+import 'package:gestions_des_depense_des_enfants/screens/auth/controllers/register.controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -27,24 +28,31 @@ class _SplashState extends State<Splash> {
     String? accessToken = prefs.getString("accessToken");
 
     if (accessToken != null) {
-      final response = await http.post(
-        Uri.parse("${Config.API_URL}/auth/verify-token"),
-        headers: {"Content-Type": "application/json"},
-        body: json.encode({'token': accessToken}),
-      );
+      var response;
+      try {
+        response = await http.post(
+          Uri.parse("${Config.API_URL}/auth/verify-token"),
+          headers: {"Content-Type": "application/json"},
+          body: json.encode({'token': accessToken}),
+        );
 
-      if (response.statusCode == 200) {
-        HttpResponseModel responseModel =
-            HttpResponseModel.fromJson(json.decode(response.body));
-        if (responseModel.type == "TOKEN_VALID") {
-          await prefs.setBool("isLoggedin", true);
+        if (response.statusCode == 200) {
+          HttpResponseModel responseModel =
+              HttpResponseModel.fromJson(json.decode(response.body));
+          if (responseModel.type == "TOKEN_VALID") {
+            await prefs.setBool("isLoggedin", true);
+          } else {
+            await prefs.setBool("isLoggedin", false);
+          }
         } else {
           await prefs.setBool("isLoggedin", false);
         }
-      } else {
-        await prefs.setBool("isLoggedin", false);
+      } catch (e) {
+        logger.e(e);
       }
     }
+
+    logger.i("isLoggedin: ${prefs.getBool("isLoggedin")}");
 
     // wait 2 sec
     bool? isLoggedin = prefs.getBool("isLoggedin");

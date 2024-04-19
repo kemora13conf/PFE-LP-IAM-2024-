@@ -5,6 +5,7 @@ class EnfantModel {
   String? fullname;
   String? cne;
   String? image;
+  String? genre;
   String? ecole;
   String? niveau;
   ParentModel? parent;
@@ -14,6 +15,7 @@ class EnfantModel {
     this.fullname,
     this.cne,
     this.image,
+    this.genre,
     this.ecole,
     this.niveau,
     this.parent,
@@ -22,9 +24,10 @@ class EnfantModel {
   factory EnfantModel.fromJson(Map<String, dynamic> json) {
     return EnfantModel(
       id: json['_id'],
-      fullname: json['fullname'],
-      cne: json['cne'],
+      fullname: json['nom'],
+      cne: json['CNE'],
       image: json['image'],
+      genre: json['genre'],
       ecole: json['ecole'],
       niveau: json['niveau'],
       parent: ParentModel.fromJson(json['parent']),
