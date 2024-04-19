@@ -1,4 +1,3 @@
-import 'package:gestions_des_depense_des_enfants/models/enfant.model.dart';
 
 class ParentModel {
   String? id;

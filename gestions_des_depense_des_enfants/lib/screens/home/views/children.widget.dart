@@ -3,8 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gestions_des_depense_des_enfants/Config.dart';
 import 'package:gestions_des_depense_des_enfants/models/http_response.model.dart';
-import 'package:gestions_des_depense_des_enfants/screens/auth/controllers/register.controller.dart';
-import 'package:gestions_des_depense_des_enfants/screens/home/controllers/current_user.controller.dart';
+import 'package:gestions_des_depense_des_enfants/routes/paths.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:gestions_des_depense_des_enfants/models/enfant.model.dart';
@@ -21,6 +20,7 @@ class _ChildrenWidgetState extends State<ChildrenWidget> {
   late List<EnfantModel> children;
 
   Future<void> getChildren() async {
+    children = [];
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("accessToken");
     final response = await http.get(
@@ -35,17 +35,15 @@ class _ChildrenWidgetState extends State<ChildrenWidget> {
           HttpResponseModel.fromJson(jsonDecode(response.body));
       if (res.type == "ENFANTS_FETCHED") {
         List<dynamic> data = res.data;
-        children = [];
         data.forEach((element) {
           // switch element from dynamic to Map<String, dynamic>
           Map<String, dynamic> child = element;
           EnfantModel enfant = EnfantModel.fromJson(child);
-          setState(() {
-            children.add(enfant);
-          });
+          children.add(enfant);
         });
       }
     }
+    setState(() {});
   }
 
   @override
@@ -80,50 +78,89 @@ class _ChildrenWidgetState extends State<ChildrenWidget> {
             ),
           ),
         ),
-        const SizedBox(height: 20),
-        ListView.builder(
-            shrinkWrap: true,
-            itemCount: children.length,
-            itemBuilder: (context, index) {
-              return ElevatedButton(
-                onPressed: () {
-                  Get.toNamed("/child", arguments: children[index]);
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
-                  surfaceTintColor: MaterialStateProperty.all(Colors.white),
-                  side: MaterialStateProperty.all(
-                    BorderSide(
-                      color: Colors.blue,
-                      width: 2.0,
-                    ),
-                  ),
-                  maximumSize: MaterialStateProperty.all(const Size(50, 50)),
-                  padding: MaterialStateProperty.all(
-                    const EdgeInsets.all(3),
-                  ),
-                  shadowColor:
-                      MaterialStateProperty.all(Colors.grey.withOpacity(0)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-                child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            "${Config.ASSETS_URL}/Children-images/${children[index].image}"),
-                        fit: BoxFit.cover,
+        const SizedBox(height: 10),
+        children.length > 0
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Column(
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Get.toNamed(Paths.ADD_CHILD);
+                              },
+                              child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  padding: const EdgeInsets.all(3),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: const Icon(
+                                    Icons.add,
+                                    color: Colors.grey,
+                                    size: 35,
+                                  ))),
+                          const SizedBox(height: 5),
+                          const Text(
+                            "Ajouter enfant",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    child: const Text("")),
-              );
-            }),
+                    ...children.map((enfant) {
+                      return Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed("/child", arguments: enfant);
+                              },
+                              child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  padding: const EdgeInsets.all(3),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.blue,
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Image(
+                                    image: NetworkImage(
+                                        "${Config.ASSETS_URL}/Children-images/${enfant.image}"),
+                                  )),
+                            ),
+                            const SizedBox(height: 5),
+                            Container(
+                              width: 50,
+                              child: Text(
+                                enfant.fullname!,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+                    }),
+                  ])
+            : const Text("Vous n'avez pas encore d'enfants"),
       ],
     );
   }

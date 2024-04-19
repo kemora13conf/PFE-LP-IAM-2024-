@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gestions_des_depense_des_enfants/routes/paths.dart';
 import 'package:gestions_des_depense_des_enfants/screens/Welcome/welcome.dart';
+import 'package:gestions_des_depense_des_enfants/screens/add_child/bindings/add_child.bindings.dart';
+import 'package:gestions_des_depense_des_enfants/screens/add_child/views/add_child_form.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/bindings/forgot_password.bindings.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/bindings/login.bindings.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/bindings/register.bindings.dart';
@@ -66,14 +68,19 @@ class Pages {
       curve: Curves.easeInCubic,
       binding: ResetPasswordBinds(),
     ),
-    
     GetPage(
-      name: Paths.HOME,
-      page: () => const Home(),
-      transition: Transition.fade,
-      curve: Curves.easeInCubic,
-      transitionDuration: const Duration(milliseconds: 500),
-      binding: HomeBinds()
-    ),
+        name: Paths.HOME,
+        page: () => const Home(),
+        transition: Transition.fade,
+        curve: Curves.easeInCubic,
+        transitionDuration: const Duration(milliseconds: 500),
+        binding: HomeBinds()),
+    GetPage(
+        name: Paths.ADD_CHILD,
+        page: () => const AddChildForm(),
+        transition: Transition.fade,
+        curve: Curves.easeInCubic,
+        transitionDuration: const Duration(milliseconds: 500),
+        binding: AddChildBinds())
   ];
 }

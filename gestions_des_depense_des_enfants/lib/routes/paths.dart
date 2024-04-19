@@ -9,4 +9,5 @@ class Paths{
   static const String FORGOT_PASSWORD = '/forgot-password';
   static const String RESET_PASSWORD = '/reset-password';
   static const String REGISTER = '/register';
+  static const String ADD_CHILD = '/add-child';
 }
