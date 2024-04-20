@@ -12,6 +12,8 @@ import 'package:gestions_des_depense_des_enfants/screens/auth/views/forgot_passw
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/login.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/register.dart';
 import 'package:gestions_des_depense_des_enfants/screens/auth/views/reset_password.dart';
+import 'package:gestions_des_depense_des_enfants/screens/child/bindings/child.bindings.dart';
+import 'package:gestions_des_depense_des_enfants/screens/child/views/child.dart';
 import 'package:gestions_des_depense_des_enfants/screens/home/bindings/home.bindings.dart';
 import 'package:gestions_des_depense_des_enfants/screens/home/views/home.dart';
 import 'package:gestions_des_depense_des_enfants/screens/splahs.dart';
@@ -76,11 +78,20 @@ class Pages {
         transitionDuration: const Duration(milliseconds: 500),
         binding: HomeBinds()),
     GetPage(
-        name: Paths.ADD_CHILD,
-        page: () => const AddChildForm(),
-        transition: Transition.fade,
-        curve: Curves.easeInCubic,
-        transitionDuration: const Duration(milliseconds: 500),
-        binding: AddChildBinds())
+      name: Paths.ADD_CHILD,
+      page: () => const AddChildForm(),
+      transition: Transition.fade,
+      curve: Curves.easeInCubic,
+      transitionDuration: const Duration(milliseconds: 500),
+      binding: AddChildBinds(),
+    ),
+    GetPage(
+      name: Paths.CHILD,
+      page: () => const Child(),
+      transition: Transition.fade,
+      curve: Curves.easeInCubic,
+      transitionDuration: const Duration(milliseconds: 500),
+      binding: ChildBinds(),
+    ),
   ];
 }

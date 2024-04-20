@@ -125,7 +125,7 @@ class _ChildrenWidgetState extends State<ChildrenWidget> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Get.toNamed("/child", arguments: enfant);
+                                Get.toNamed(Paths.CHILD, arguments: enfant);
                               },
                               child: Container(
                                   width: 50,
