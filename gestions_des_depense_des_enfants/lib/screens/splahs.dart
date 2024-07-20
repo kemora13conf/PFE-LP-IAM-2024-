@@ -24,6 +24,7 @@ class _SplashState extends State<Splash> {
   }
 
   void _navigateToApp() async {
+    logger.i("Navigate to app");
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? accessToken = prefs.getString("accessToken");
 
@@ -63,9 +64,7 @@ class _SplashState extends State<Splash> {
         Get.offAllNamed(Paths.AUTH);
       }
     } else {
-      Future.delayed(const Duration(seconds: 2), () {
-        Get.offAllNamed(Paths.WELCOME);
-      });
+      Get.offAllNamed(Paths.WELCOME);
     }
   }
 

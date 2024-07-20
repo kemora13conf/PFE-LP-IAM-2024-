@@ -1,6 +1,4 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
-import CryptoJS from "crypto-js";
 const { Schema, model, models } = mongoose;
 
 const parentSchema = new Schema({

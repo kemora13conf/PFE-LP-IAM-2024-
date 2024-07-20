@@ -8472,3 +8472,60 @@
 2024-04-19 22:17:04 [32minfo[39m: [32mTo: mohamededary@gmail.com[39m
 2024-04-19 22:17:04 [32minfo[39m: [32mCode: K#t!Y&jk*SM2[39m
 2024-04-19 22:17:04 [32minfo[39m: [32m========================[39m
+2024-04-19 23:06:38 [32minfo[39m: [32m==========================================[39m
+2024-04-19 23:06:38 [32minfo[39m: [32m============ ENV: development ============[39m
+2024-04-19 23:06:38 [32minfo[39m: [32m🚀 App listening on the port 3000[39m
+2024-04-19 23:06:38 [32minfo[39m: [32m🏃 Running on http://192.168.3.108:3000[39m
+2024-04-19 23:06:38 [32minfo[39m: [32m==========================================[39m
+2024-04-19 23:06:38 [32minfo[39m: [32m====== DB STATE: Database connected ======[39m
+2024-04-19 23:10:37 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-19 23:10:42 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-19 23:10:44 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-19 23:16:22 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-19 23:16:26 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-19 23:28:14 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-19 23:28:17 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-19 23:45:34 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-19 23:45:37 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-20 00:15:47 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-20 00:15:50 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-20 01:05:23 [37mdebug[39m: [37m[POST] /api/auth/check-email[39m
+2024-04-20 01:05:23 [37mdebug[39m: [37m[POST] /api/auth/send-verification-email[39m
+2024-04-20 01:05:25 [32minfo[39m: [32m====== Email Sent ======[39m
+2024-04-20 01:05:25 [32minfo[39m: [32mTo: abdomouak47@gmail.com[39m
+2024-04-20 01:05:25 [32minfo[39m: [32mCode: ezHgJxXx2hWP[39m
+2024-04-20 01:05:25 [32minfo[39m: [32m========================[39m
+2024-04-20 01:05:33 [37mdebug[39m: [37m[POST] /api/auth/check-email[39m
+2024-04-20 01:05:33 [37mdebug[39m: [37m[POST] /api/auth/send-verification-email[39m
+2024-04-20 01:05:34 [32minfo[39m: [32m====== Email Sent ======[39m
+2024-04-20 01:05:34 [32minfo[39m: [32mTo: abdomouak47@gmail.com[39m
+2024-04-20 01:05:34 [32minfo[39m: [32mCode: ZDBaO%JFbGqC[39m
+2024-04-20 01:05:34 [32minfo[39m: [32m========================[39m
+2024-04-20 01:06:08 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-20 01:06:10 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-21 17:13:55 [32minfo[39m: [32m==========================================[39m
+2024-04-21 17:13:55 [32minfo[39m: [32m============ ENV: development ============[39m
+2024-04-21 17:13:55 [32minfo[39m: [32m🚀 App listening on the port 3000[39m
+2024-04-21 17:13:55 [32minfo[39m: [32m🏃 Running on http://192.168.11.153:3000[39m
+2024-04-21 17:13:55 [32minfo[39m: [32m==========================================[39m
+2024-04-21 17:13:55 [32minfo[39m: [32m====== DB STATE: Database connected ======[39m
+2024-04-21 17:18:10 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-21 17:32:00 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-21 17:32:00 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-21 17:32:00 [37mdebug[39m: [37m[POST] /api/auth/verify-token[39m
+2024-04-21 17:32:03 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-21 17:32:33 [37mdebug[39m: [37m[POST] /api/auth/send-verification-email[39m
+2024-04-21 17:32:35 [32minfo[39m: [32m====== Email Sent ======[39m
+2024-04-21 17:32:35 [32minfo[39m: [32mTo: abdomouak48@gmail.com[39m
+2024-04-21 17:32:35 [32minfo[39m: [32mCode: sOxTHhXpkY57[39m
+2024-04-21 17:32:35 [32minfo[39m: [32m========================[39m
+2024-04-21 17:33:13 [37mdebug[39m: [37m[POST] /api/auth/reset-password[39m
+2024-04-21 17:33:18 [37mdebug[39m: [37m[POST] /api/auth/reset-password[39m
+2024-04-21 17:33:30 [37mdebug[39m: [37m[POST] /api/auth/login[39m
+2024-04-21 17:33:30 [37mdebug[39m: [37m[GET] /api/enfants[39m
+2024-04-21 17:34:02 [32minfo[39m: [32m==========================================[39m
+2024-04-21 17:34:02 [32minfo[39m: [32m============ ENV: development ============[39m
+2024-04-21 17:34:02 [32minfo[39m: [32m🚀 App listening on the port 3000[39m
+2024-04-21 17:34:02 [32minfo[39m: [32m🏃 Running on http://192.168.11.153:3000[39m
+2024-04-21 17:34:02 [32minfo[39m: [32m==========================================[39m
+2024-04-21 17:34:02 [32minfo[39m: [32m====== DB STATE: Database connected ======[39m
